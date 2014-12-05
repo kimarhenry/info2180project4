@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Cheapo Mail</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+		function compose(){
+		$("#myModal").modal('show');
+		}
+		$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+		});
+		</script>
+	</head>
+	<body>
+		<header class="navbar navbar-inverse navbar-fixed-top green-sea" role="banner">
+			<div class="container">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><h1>CheapoMail</h1></a>
+			</div>
+			<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+			<li><a href="register.php"><?php echo $_SESSION['register'];?></a></li>
+			<li><a href="Home.html">Logout</a></li>
+			</ul>
+			</div>
+			</div>
+		</header>
+		<section id="title" class="green-sea">
+			<div class="container">
+			<div class="row">
+			<div class="col-sm-6">
+			<h1>Mail Room</h1>
+			<p>You can compose and read messages here</p>
+			</div>
+			<p>Welcome <?php echo $_SESSION['username'];?></p>
+			<button onclick="compose();" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Click to write a message">Compose</button>
+			</div>
+		</section>
+		<section id="registration" class="container green-sea"><h1>Messages</h1></section>
+		<section id="bottom" class="green-sea">
+		</section>
+		<div id="myModal" class="modal fade">
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h4 class="modal-title">Mail</h4>
+		</div>
+		<div class="modal-body">
+		<form class="center" role="form" method="POST" action="message.php">
+		<fieldset class="registration-form">
+			<div class="form-group">
+			<input type="text" id="to" name="to" placeholder="To" class="form-control">
+			</div>
+			<div class="form-group">
+			<input type="text" id="subject" name="subject" placeholder="Subject" class="form-control">
+			</div>
+			<div class="form-group">
+			<textarea col="100" id="message" name="message" placeholder="Message here" class="form-control"></textarea>
+			</div>
+			<div class="modal-footer">
+			<div class="form-group">
+			<button id="alt" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			<button class="btn btn-success">Send</button>
+			</div>
+			</div>
+		</fieldset>
+		</form>
+		</div>
+		</div>
+		</div>
+		</div>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
